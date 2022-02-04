@@ -138,8 +138,12 @@ function printElements (array, container){
   container.innerHTML = "";
   array.forEach(element => {
     container.innerHTML += `<div class="card-icon">
-                              <i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+                              <i class="${element.family} ${element.prefix}${element.name}" style="color: #${randomColor()}"></i>
                               <span>${element.name}</span>
                             </div>`;
   });
+}
+
+function randomColor (){
+  return Math.floor(Math.random()*11111111).toString(16);
 }
