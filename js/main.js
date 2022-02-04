@@ -110,19 +110,33 @@ const icons = [
 		type: 'user',
 		family: 'fas',
 		color: 'blue'
+	},
+  {
+		name: 'hamburger',
+		prefix: 'fa-',
+		type: 'food',
+		family: 'fas',
+		color: 'blue'
+	},
+  {
+		name: 'tshirt',
+		prefix: 'fa-',
+		type: 'clothes',
+		family: 'fas',
+		color: 'blue'
 	}
 ];
 
 let container = document.getElementById("container");
 let select = document.getElementById("select");
 
-printElements(icons, container)
+printElements(icons, container);
 
 select.addEventListener("change", function (){
   let selection = this.value;
 
   if(selection == "all"){
-    printElements(icons, container)
+    printElements(icons, container);
   }else{
     let selectionItems = icons.filter(object => {
       if(object.type == selection){ 
@@ -133,6 +147,19 @@ select.addEventListener("change", function (){
     printElements (selectionItems, container);
   }
 });
+
+let options= ["all",]
+
+
+for(let i = 0; i <icons.length; i++){
+  if(!options.includes(icons[i].type)){ 
+    options.push(icons[i].type);
+  } 
+}
+options.forEach(element => {
+  select.innerHTML += `<option value="${element}">${element}</option>`
+});
+
 
 function printElements (array, container){
   container.innerHTML = "";
