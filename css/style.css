@@ -24,7 +24,7 @@ main{
   min-height: calc(100vh - 143px);
   background-color: rgb(221, 221, 221);
 }
-.container{
+#container{
   max-width: 1200px;
   margin: auto;
   display: flex;

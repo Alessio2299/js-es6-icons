@@ -112,3 +112,24 @@ const icons = [
 		color: 'blue'
 	}
 ];
+
+let container = document.getElementById("container");
+let selection = document.getElementById("select");
+let selectionItems = [];
+selection.addEventListener("change", function (){
+    if(selection.value === "All"){
+      printElements (icons, container);
+    } else {
+      
+    }
+  }
+)
+
+function printElements (array, container){
+  array.forEach(element => {
+    container.innerHTML += `<div class="card-icon">
+                              <i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+                              <span>${element.name}</span>
+                            </div>`;
+  });
+}
