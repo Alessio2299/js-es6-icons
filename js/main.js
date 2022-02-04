@@ -114,18 +114,28 @@ const icons = [
 ];
 
 let container = document.getElementById("container");
-let selection = document.getElementById("select");
-let selectionItems = [];
-selection.addEventListener("change", function (){
-    if(selection.value === "All"){
-      printElements (icons, container);
-    } else {
-      
-    }
+let select = document.getElementById("select");
+
+printElements(icons, container)
+
+select.addEventListener("change", function (){
+  let selection = this.value;
+
+  if(selection == "all"){
+    printElements(icons, container)
+  }else{
+    let selectionItems = icons.filter(object => {
+      if(object.type == selection){ 
+        return true;
+      } 
+      return false;
+    })
+    printElements (selectionItems, container);
   }
-)
+});
 
 function printElements (array, container){
+  container.innerHTML = "";
   array.forEach(element => {
     container.innerHTML += `<div class="card-icon">
                               <i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
